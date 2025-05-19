@@ -18,6 +18,10 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 
 SceneManager="*res://scenes/scene_manager.tscn"
 
+[global_group]
+
+pushable="BLock that can be pushed"
+
 [input]
 
 w={

@@ -36,4 +36,3 @@ func processCollision():
 		if collider_node is RigidBody2D:
 			var collision_normal: Vector2 = collision.get_normal()
 			collider_node.apply_central_force(-collision_normal * push_strength)
-		print('Hier die Kollision: ', collision)
