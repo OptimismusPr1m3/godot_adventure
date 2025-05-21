@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://o7d8u1m0ul7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gi2u3"]
+size = Vector2(20, 76)
+
+[node name="Puzzlewall" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gi2u3")

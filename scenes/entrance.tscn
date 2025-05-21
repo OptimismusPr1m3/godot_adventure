@@ -6,6 +6,7 @@
 size = Vector2(17, 14)
 
 [node name="Entrance" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_kwwjj")
 new_scene = "res://scenes/dungeon_scene.tscn"
 

@@ -3,13 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://dx1odwj14f216" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetDungeon.png" id="1_8r6n6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cgrg5"]
-size = Vector2(16, 14)
+size = Vector2(14, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4kun4"]
 atlas = ExtResource("1_8r6n6")
 region = Rect2(127.902, 47.9469, 16.6189, 16.0531)
 
 [node name="Block" type="RigidBody2D" groups=["pushable"]]
+collision_layer = 4
+collision_mask = 15
 gravity_scale = 0.0
 lock_rotation = true
 linear_damp = 15.0
