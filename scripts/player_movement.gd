@@ -8,7 +8,14 @@ func _ready() -> void:
 	if SceneManager.player_spawn:
 		position = SceneManager.player_spawn
 
-func _process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	move_player()
+	processCollision()
+	
+	move_and_slide()
+	
+
+func move_player():
 	var moveVector: Vector2 = Input.get_vector("a", "d", "w", "s")
 	
 	velocity = moveVector * speed
@@ -23,11 +30,6 @@ func _process(_delta: float) -> void:
 		$AnimatedSprite2D.play("walk_up")
 	else:
 		$AnimatedSprite2D.stop()
-	
-	processCollision()
-	
-	move_and_slide()
-	
 
 func processCollision():
 	var collision: KinematicCollision2D = get_last_slide_collision()

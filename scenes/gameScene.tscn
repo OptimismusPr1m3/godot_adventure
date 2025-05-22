@@ -824,7 +824,7 @@ tile_map_data = PackedByteArray("AAD8/wQAAAAPAA4AAAAFAAEAAAAPAA4AAAALAAkAAAAPAA4
 tile_set = SubResource("TileSet_4doxw")
 
 [node name="CharacterBody2D" parent="ObstacleLayer" instance=ExtResource("2_qdqca")]
-position = Vector2(218, 88)
+position = Vector2(232, 41)
 motion_mode = 1
 push_strength = 360.0
 
@@ -837,11 +837,11 @@ position = Vector2(232, 24)
 [node name="Entrance" parent="." instance=ExtResource("5_4doxw")]
 position = Vector2(232, 21)
 scale = Vector2(1, 0.76)
-player_spawn_position = Vector2(536, 28)
+player_spawn_position = Vector2(520, 269)
 
 [node name="Block" parent="." instance=ExtResource("6_5a1sk")]
 y_sort_enabled = true
-position = Vector2(275, 129)
+position = Vector2(273, 70)
 
 [node name="PuzzleWall" type="StaticBody2D" parent="."]
 collision_layer = 8
