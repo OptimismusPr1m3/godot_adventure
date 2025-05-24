@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://co8yll8njtq1a"]
+
+[ext_resource type="Script" uid="uid://bfbcsorkojobq" path="res://scripts/npc.gd" id="1_abqhh"]
+[ext_resource type="Texture2D" uid="uid://60yfe5lkn726" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/Lion/SpriteSheet.png" id="1_nh2m4"]
+[ext_resource type="Texture2D" uid="uid://cdbcrcv3x8dht" path="res://assets/Ninja Adventure - Asset Pack/Ui/Dialog/DialogBoxFaceset.png" id="3_rv78h"]
+[ext_resource type="Texture2D" uid="uid://dt27rjqohwlyg" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/Lion/Faceset.png" id="4_7n8xq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_abqhh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rv78h"]
+atlas = ExtResource("1_nh2m4")
+region = Rect2(0, 0, 16.9289, 16.6498)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4wlns"]
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
+[node name="NPC" type="StaticBody2D" groups=["interactable"]]
+script = ExtResource("1_abqhh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(0.679998, 0.48)
+shape = SubResource("CapsuleShape2D_abqhh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_rv78h")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = 92.0
+offset_top = 446.0
+offset_right = 392.0
+offset_bottom = 504.0
+scale = Vector2(3.285, 3.285)
+texture = ExtResource("3_rv78h")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 4.87062
+offset_top = 14.3075
+offset_right = 44.8706
+offset_bottom = 54.3075
+texture = ExtResource("4_7n8xq")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 306.0
+offset_top = 519.0
+offset_right = 707.0
+offset_bottom = 586.0
+text = "Heyho brataaaan"
+label_settings = SubResource("LabelSettings_4wlns")

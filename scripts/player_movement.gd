@@ -21,12 +21,16 @@ func move_player():
 	velocity = moveVector * speed
 	
 	if moveVector.x > 0:
+		$Area2D.position = Vector2(6, 2)
 		$AnimatedSprite2D.play("walk_right")
 	elif moveVector.x < 0:
+		$Area2D.position = Vector2(-6, 2)
 		$AnimatedSprite2D.play("walk_left")
 	elif moveVector.y > 0:
+		$Area2D.position = Vector2(0, 8)
 		$AnimatedSprite2D.play("walk_down")
 	elif moveVector.y < 0:
+		$Area2D.position = Vector2(0, -6)
 		$AnimatedSprite2D.play("walk_up")
 	else:
 		$AnimatedSprite2D.stop()
@@ -38,3 +42,15 @@ func processCollision():
 		if collider_node is RigidBody2D:
 			var collision_normal: Vector2 = collision.get_normal()
 			collider_node.apply_central_force(-collision_normal * push_strength)
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group('interactable'):
+		SceneManager.can_talk_to_npc = true
+		print('JEtzt ist nen NPC drinnen')
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.is_in_group('interactable'):
+		SceneManager.can_talk_to_npc = false
+		print('NPC ist nun wieder aus dem Area raus')

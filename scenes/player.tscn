@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://xtqcfi5sdp45"]
+[gd_scene load_steps=22 format=3 uid="uid://xtqcfi5sdp45"]
 
 [ext_resource type="Texture2D" uid="uid://clcowq3p0s0uc" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/Hunter/SpriteSheet.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://blymcygpch2ku" path="res://scripts/player_movement.gd" id="1_g2els"]
@@ -141,6 +141,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
 size = Vector2(15.6133, 17.4991)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(8, 8)
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 7
@@ -156,3 +159,13 @@ frame_progress = 0.721443
 position = Vector2(-1.78814e-07, 2.33301)
 scale = Vector2(0.64048, 0.533398)
 shape = SubResource("RectangleShape2D_3vyb7")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_g2els")
+debug_color = Color(6.30513e-06, 0.736401, 0.33103, 0.42)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
