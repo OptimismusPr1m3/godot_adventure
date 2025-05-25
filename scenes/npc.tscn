@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://co8yll8njtq1a"]
+[gd_scene load_steps=10 format=3 uid="uid://co8yll8njtq1a"]
 
 [ext_resource type="Script" uid="uid://bfbcsorkojobq" path="res://scripts/npc.gd" id="1_abqhh"]
 [ext_resource type="Texture2D" uid="uid://60yfe5lkn726" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/Lion/SpriteSheet.png" id="1_nh2m4"]
 [ext_resource type="Texture2D" uid="uid://cdbcrcv3x8dht" path="res://assets/Ninja Adventure - Asset Pack/Ui/Dialog/DialogBoxFaceset.png" id="3_rv78h"]
 [ext_resource type="Texture2D" uid="uid://dt27rjqohwlyg" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/Lion/Faceset.png" id="4_7n8xq"]
+[ext_resource type="FontFile" uid="uid://y3cl7phhtqq2" path="res://assets/Ninja Adventure - Asset Pack/Ui/Font/NormalFont.ttf" id="5_4wlns"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_abqhh"]
 
@@ -11,8 +12,15 @@
 atlas = ExtResource("1_nh2m4")
 region = Rect2(0, 0, 16.9289, 16.6498)
 
+[sub_resource type="LabelSettings" id="LabelSettings_tl2vt"]
+font = ExtResource("5_4wlns")
+font_size = 10
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_4wlns"]
-font_size = 48
+font = ExtResource("5_4wlns")
+font_size = 44
 font_color = Color(0, 0, 0, 1)
 
 [node name="NPC" type="StaticBody2D" groups=["interactable"]]
@@ -45,10 +53,19 @@ offset_right = 44.8706
 offset_bottom = 54.3075
 texture = ExtResource("4_7n8xq")
 
+[node name="Label" type="Label" parent="CanvasLayer/TextureRect"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = -3.0
+offset_right = 58.0
+offset_bottom = 12.0
+text = "Lion Boy"
+label_settings = SubResource("LabelSettings_tl2vt")
+
 [node name="Label" type="Label" parent="CanvasLayer"]
 offset_left = 306.0
 offset_top = 519.0
 offset_right = 707.0
 offset_bottom = 586.0
-text = "Heyho brataaaan"
+text = "Heyho , how are ya ?"
 label_settings = SubResource("LabelSettings_4wlns")
