@@ -838,9 +838,12 @@ position = Vector2(232, 24)
 
 [node name="NPC" parent="ObstacleLayer" instance=ExtResource("7_5rda0")]
 position = Vector2(-3, 39)
+dialogue_lines = Array[String](["Hey ! Ich heisse Wernerwampe.", "Im Sueden findet man eine Hoehle", "Viel Glueck dabei !"])
 
 [node name="NPC2" parent="ObstacleLayer" instance=ExtResource("8_u31e1")]
+process_mode = 0
 position = Vector2(-119, 80)
+dialogue_lines = Array[String](["Guten Tag ! Ich bin der Adelfred", "Ich hoffe dir geht es gut  ?", "Du bist aber nicht sehr gespraechig ...."])
 
 [node name="Entrance" parent="." instance=ExtResource("5_4doxw")]
 position = Vector2(232, 21)

@@ -24,6 +24,7 @@ font_size = 44
 font_color = Color(0, 0, 0, 1)
 
 [node name="NPC" type="StaticBody2D" groups=["interactable"]]
+process_mode = 3
 script = ExtResource("1_abqhh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -63,9 +64,10 @@ text = "Lion Boy"
 label_settings = SubResource("LabelSettings_tl2vt")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 306.0
-offset_top = 519.0
-offset_right = 707.0
-offset_bottom = 586.0
+offset_left = 261.0
+offset_top = 490.0
+offset_right = 1055.0
+offset_bottom = 617.0
 text = "Heyho , how are ya ?"
 label_settings = SubResource("LabelSettings_4wlns")
+autowrap_mode = 3
