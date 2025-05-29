@@ -46,11 +46,11 @@ func processCollision():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group('interactable'):
-		body.can_talk = true
+		body.can_interact = true
 		print('JEtzt ist nen NPC drinnen')
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group('interactable'):
-		body.can_talk = false
+		body.can_interact = false
 		print('NPC ist nun wieder aus dem Area raus')

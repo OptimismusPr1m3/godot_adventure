@@ -3,7 +3,7 @@ extends StaticBody2D
 @onready var canvas = $CanvasLayer
 @onready var line = $CanvasLayer/Label
 
-var can_talk: bool = false
+var can_interact: bool = false
 
 var dialogue_lines1: Array[String] = ['Ich heisse Wernerwampe', 'Ich bin Werners Schlampe', 'Und ich liebe Kuchen !', 'Machs gut nech ?']
 @export var dialogue_lines: Array[String]
@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
-		if dialogue_index < dialogue_lines.size() && can_talk:
+		if dialogue_index < dialogue_lines.size() && can_interact:
 			canvas.visible = true
 			get_tree().paused = true
 			print('TReee paused')
