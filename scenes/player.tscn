@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://xtqcfi5sdp45"]
+[gd_scene load_steps=24 format=3 uid="uid://xtqcfi5sdp45"]
 
 [ext_resource type="Texture2D" uid="uid://clcowq3p0s0uc" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/Hunter/SpriteSheet.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://blymcygpch2ku" path="res://scripts/player_movement.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://cu58psvi86rdb" path="res://assets/Ninja Adventure - Asset Pack/Items/Scroll/ScrollEmpty.png" id="3_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -144,6 +145,9 @@ size = Vector2(15.6133, 17.4991)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(8, 8)
 
+[sub_resource type="LabelSettings" id="LabelSettings_dqkch"]
+font_size = 48
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 7
@@ -166,6 +170,33 @@ collision_layer = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_g2els")
 debug_color = Color(6.30513e-06, 0.736401, 0.33103, 0.42)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_left = 65.0
+offset_top = 45.0
+offset_right = 183.0
+offset_bottom = 95.0
+
+[node name="TreasureLabel" type="Label" parent="CanvasLayer/Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 6.0
+offset_top = -11.0
+offset_right = 72.0
+offset_bottom = 56.0
+text = "0"
+label_settings = SubResource("LabelSettings_dqkch")
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel"]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 4.0
+offset_right = 113.0
+offset_bottom = 44.0
+texture = ExtResource("3_qhqgy")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

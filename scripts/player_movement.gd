@@ -5,13 +5,14 @@ var speed:float = 100
 @export var push_strength: float = 160
 
 func _ready() -> void:
+	updateTreasureLabel()
 	if SceneManager.player_spawn:
 		position = SceneManager.player_spawn
 
 func _physics_process(delta: float) -> void:
 	move_player()
 	processCollision()
-	
+	updateTreasureLabel()
 	move_and_slide()
 	
 
@@ -54,3 +55,6 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group('interactable'):
 		body.can_interact = false
 		print('NPC ist nun wieder aus dem Area raus')
+
+func updateTreasureLabel():
+	%TreasureLabel.text = str(SceneManager.opened_chests.size())
