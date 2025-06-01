@@ -42,6 +42,3 @@ shape = SubResource("RectangleShape2D_e08h5")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_w78pk")
 animation = &"deactivated"
-
-[connection signal="switch_activated" from="." to="." method="_on_switch_activated"]
-[connection signal="switch_deactivated" from="." to="." method="_on_switch_deactivated"]
