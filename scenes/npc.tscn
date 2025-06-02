@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://co8yll8njtq1a"]
+[gd_scene load_steps=11 format=3 uid="uid://co8yll8njtq1a"]
 
 [ext_resource type="Script" uid="uid://bfbcsorkojobq" path="res://scripts/npc.gd" id="1_abqhh"]
 [ext_resource type="Texture2D" uid="uid://60yfe5lkn726" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/Lion/SpriteSheet.png" id="1_nh2m4"]
 [ext_resource type="Texture2D" uid="uid://cdbcrcv3x8dht" path="res://assets/Ninja Adventure - Asset Pack/Ui/Dialog/DialogBoxFaceset.png" id="3_rv78h"]
 [ext_resource type="Texture2D" uid="uid://dt27rjqohwlyg" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/Lion/Faceset.png" id="4_7n8xq"]
 [ext_resource type="FontFile" uid="uid://y3cl7phhtqq2" path="res://assets/Ninja Adventure - Asset Pack/Ui/Font/NormalFont.ttf" id="5_4wlns"]
+[ext_resource type="AudioStream" uid="uid://bu7l10ikpg4df" path="res://assets/Ninja Adventure - Asset Pack/Sounds/Game/MiniImpact.wav" id="6_tl2vt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_abqhh"]
 
@@ -71,3 +72,6 @@ offset_bottom = 617.0
 text = "Heyho , how are ya ?"
 label_settings = SubResource("LabelSettings_4wlns")
 autowrap_mode = 3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_tl2vt")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://cvfvyb1hblmml"]
+[gd_scene load_steps=22 format=4 uid="uid://cvfvyb1hblmml"]
 
 [ext_resource type="Texture2D" uid="uid://c237rdhibvvk0" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_dogwq"]
 [ext_resource type="Texture2D" uid="uid://drf45jtvxjy1e" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetNature.png" id="2_ijoxr"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://rkrhh1nm1t62" path="res://scenes/puzzle_button.tscn" id="7_ldpgw"]
 [ext_resource type="PackedScene" uid="uid://c68iyflaxxdyd" path="res://scenes/lionOrangeNpc.tscn" id="8_u31e1"]
 [ext_resource type="PackedScene" uid="uid://c2g4bphn18xa7" path="res://scenes/switch.tscn" id="11_jexop"]
+[ext_resource type="AudioStream" uid="uid://c188vn5x7qok1" path="res://assets/Ninja Adventure - Asset Pack/Musics/1 - Adventure Begin.ogg" id="12_mp0ry"]
+[ext_resource type="PackedScene" uid="uid://d05kpkc67n2xk" path="res://scenes/enemies/slime_enemy.tscn" id="13_4cghv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qdqca"]
 texture = ExtResource("1_dogwq")
@@ -884,6 +886,16 @@ shape = SubResource("RectangleShape2D_u31e1")
 
 [node name="Switch" parent="." instance=ExtResource("11_jexop")]
 position = Vector2(15, 93)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("12_mp0ry")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
+
+[node name="SlimeEnemy" parent="." instance=ExtResource("13_4cghv")]
+position = Vector2(3, 165)
 
 [connection signal="pressed" from="PuzzleButton" to="ObstacleLayer/LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButton" to="ObstacleLayer/LockedDoor" method="_on_puzzle_button_unpressed"]

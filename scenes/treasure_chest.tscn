@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ys7txemnkovj"]
+[gd_scene load_steps=9 format=3 uid="uid://ys7txemnkovj"]
 
 [ext_resource type="Script" uid="uid://dyemhoeeuyj4f" path="res://scripts/treasure_chest.gd" id="1_ybsko"]
 [ext_resource type="Texture2D" uid="uid://bmxkr3ejiix8j" path="res://assets/Ninja Adventure - Asset Pack/Items/Treasure/BigTreasureChest.png" id="2_4lyqs"]
 [ext_resource type="Texture2D" uid="uid://cu58psvi86rdb" path="res://assets/Ninja Adventure - Asset Pack/Items/Scroll/ScrollEmpty.png" id="3_4lyqs"]
+[ext_resource type="AudioStream" uid="uid://dvql2h218ulru" path="res://assets/Ninja Adventure - Asset Pack/Sounds/Game/Success3.wav" id="4_b1w43"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b1w43"]
 atlas = ExtResource("2_4lyqs")
@@ -53,5 +54,8 @@ texture = ExtResource("3_4lyqs")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_b1w43")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

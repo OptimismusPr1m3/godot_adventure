@@ -23,10 +23,10 @@ func toggleChest():
 	else:
 		sprite.play("open")
 		is_open = true
+		$AudioStreamPlayer2D.play()
 		$Sprite2D.visible = true
 		$Timer.start()
 		SceneManager.opened_chests.append(chest_name)
-		print(SceneManager.opened_chests)
 
 func _on_timer_timeout() -> void:
 	$Sprite2D.visible = false

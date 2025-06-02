@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2g4bphn18xa7"]
+[gd_scene load_steps=8 format=3 uid="uid://c2g4bphn18xa7"]
 
 [ext_resource type="Texture2D" uid="uid://dx1odwj14f216" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetDungeon.png" id="1_1i7pn"]
 [ext_resource type="Script" uid="uid://sbmcxol6qf4u" path="res://scripts/switch.gd" id="1_e08h5"]
+[ext_resource type="AudioStream" uid="uid://6pfndglbi2f2" path="res://assets/Ninja Adventure - Asset Pack/Sounds/Game/Magic2.wav" id="3_nnoiq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e08h5"]
 size = Vector2(14, 14)
@@ -42,3 +43,7 @@ shape = SubResource("RectangleShape2D_e08h5")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_w78pk")
 animation = &"deactivated"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_nnoiq")
+pitch_scale = 0.6

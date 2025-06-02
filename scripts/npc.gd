@@ -13,7 +13,8 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("talk"):
+		$AudioStreamPlayer2D.play()
 		if dialogue_index < dialogue_lines.size() && can_interact:
 			canvas.visible = true
 			get_tree().paused = true
