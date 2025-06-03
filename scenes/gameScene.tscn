@@ -832,9 +832,8 @@ tile_map_data = PackedByteArray("AAD8/wQAAAAPAA4AAAAFAAEAAAAPAA4AAAALAAkAAAAPAA4
 tile_set = SubResource("TileSet_4doxw")
 
 [node name="CharacterBody2D" parent="ObstacleLayer" instance=ExtResource("2_qdqca")]
-position = Vector2(15, 63)
+position = Vector2(-75, 174)
 motion_mode = 1
-push_strength = 360.0
 
 [node name="Camera2D" type="Camera2D" parent="ObstacleLayer/CharacterBody2D"]
 zoom = Vector2(2.795, 2.795)
@@ -891,11 +890,11 @@ position = Vector2(15, 93)
 process_mode = 3
 stream = ExtResource("12_mp0ry")
 volume_db = -10.0
-autoplay = true
 parameters/looping = true
 
 [node name="SlimeEnemy" parent="." instance=ExtResource("13_4cghv")]
 position = Vector2(3, 165)
+speed = 30.0
 
 [connection signal="pressed" from="PuzzleButton" to="ObstacleLayer/LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButton" to="ObstacleLayer/LockedDoor" method="_on_puzzle_button_unpressed"]

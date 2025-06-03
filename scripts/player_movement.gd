@@ -1,10 +1,13 @@
 extends CharacterBody2D
 class_name Player
 
-var speed:float = 100
-var is_attacking: bool
-@export var push_strength: float = 160
+@export var speed:float = 100
+@export var knockback_strength: float = 150
+@export var acceleration: float = 20
+@export var push_strength: float = 360
 @onready var hpSprite: AnimatedSprite2D = $CanvasLayer/AnimatedSprite2D
+
+var is_attacking: bool
 
 func _ready() -> void:
 	updateTreasureLabel()
@@ -28,7 +31,7 @@ func _physics_process(delta: float) -> void:
 func move_player():
 	var moveVector: Vector2 = Input.get_vector("a", "d", "w", "s")
 	
-	velocity = moveVector * speed
+	velocity = velocity.move_toward(moveVector * speed, acceleration)
 	
 	if moveVector.x > 0:
 		$Area2D.position = Vector2(6, 2)
@@ -88,6 +91,11 @@ func _on_hit_box_area_2d_body_entered(body: Node2D) -> void:
 	SceneManager.player_hp -= 1
 	print(SceneManager.player_hp)
 	updateHpBar()
+	
+	var distance_to_player: Vector2 = global_position - body.global_position
+	var knockback_direction: Vector2 = distance_to_player.normalized()
+	
+	velocity += knockback_direction * knockback_strength
 
 func attack():
 	$Sword.visible = true
@@ -112,8 +120,16 @@ func attack():
 	
 
 func _on_sword_area_2d_body_entered(body: Node2D) -> void:
-	body.queue_free()
-
+	var distance_to_player: Vector2 = body.global_position - global_position
+	var knockBack_direction: Vector2 = distance_to_player.normalized()
+	
+	var knockbackStrength: float = 120
+	print('Was hit: ', body)
+	body.velocity += knockBack_direction * knockbackStrength
+	
+	body.HP -= 1
+	if body.HP <= 0:
+		body.queue_free()
 
 func _on_attack_duration_timer_timeout() -> void:
 	$Sword.visible = false

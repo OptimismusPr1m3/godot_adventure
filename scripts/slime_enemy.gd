@@ -2,7 +2,8 @@ extends CharacterBody2D
 
 var target: Node2D
 @export var speed: float
-
+@export var acceleration: float = 2
+@export var HP:int = 2
 
 func _physics_process(delta: float) -> void:
 	chase_target()
@@ -15,12 +16,13 @@ func chase_target():
 		
 		var direction_normalized: Vector2 = distace_to_player.normalized()
 		
-		velocity = direction_normalized * speed
+		velocity = velocity.move_toward(direction_normalized * speed, acceleration)
+		print(velocity)
 		animate_enemy()
 
 func animate_enemy():
 	var normal_velocity: Vector2 = velocity.normalized()
-	print('Normale Veloc', normal_velocity)
+	#print('Normale Veloc', normal_velocity)
 	
 	Vector2(10,10).normalized() # --> ist 0.707 , 0.707 :D
 	
