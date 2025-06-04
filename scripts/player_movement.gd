@@ -7,7 +7,8 @@ class_name Player
 @export var push_strength: float = 360
 @onready var hpSprite: AnimatedSprite2D = $CanvasLayer/AnimatedSprite2D
 
-var is_attacking: bool
+var is_attacking: bool = false
+var can_interact: bool = false
 
 func _ready() -> void:
 	updateTreasureLabel()
@@ -17,6 +18,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if SceneManager.player_hp <= 0:
+		return
 	if !is_attacking:
 		move_player()
 	
@@ -25,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	updateTreasureLabel()
 	
 	move_and_slide()
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") && !can_interact:
 		attack()
 
 func move_player():
@@ -60,21 +63,20 @@ func processCollision():
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group('interactable'):
 		body.can_interact = true
+		can_interact = true
 		print('JEtzt ist nen NPC drinnen')
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group('interactable'):
 		body.can_interact = false
+		can_interact = false
 		print('NPC ist nun wieder aus dem Area raus')
 
 func updateTreasureLabel():
 	%TreasureLabel.text = str(SceneManager.opened_chests.size())
 
-func die():
-	if SceneManager.player_hp <= 0:
-		get_tree().call_deferred("reload_current_scene")
-		SceneManager.player_hp = 3
+
 
 func updateHpBar():
 	if SceneManager.player_hp >= 3:
@@ -96,13 +98,22 @@ func _on_hit_box_area_2d_body_entered(body: Node2D) -> void:
 	var knockback_direction: Vector2 = distance_to_player.normalized()
 	
 	velocity += knockback_direction * knockback_strength
+	
+	var original_color = Color(1,1,1)
+	var flas_white_color:Color = Color(50,50,50)
+	modulate = flas_white_color
+	$DamageSFX.play()
+	await get_tree().create_timer(0.2).timeout
+	modulate = original_color
 
 func attack():
-	$Sword.visible = true
-	%SwordArea2D.monitoring = true
-	$AttackDurationTimer.start()
-	is_attacking = true
-	velocity = Vector2(0,0)
+	if !is_attacking:
+		$Sword/SwordSwingSFX.play()
+		$Sword.visible = true
+		%SwordArea2D.monitoring = true
+		$AttackDurationTimer.start()
+		is_attacking = true
+		velocity = Vector2(0,0)
 	
 	var current_animation: String = $AnimatedSprite2D.animation
 	if current_animation == "walk_right":
@@ -122,14 +133,10 @@ func attack():
 func _on_sword_area_2d_body_entered(body: Node2D) -> void:
 	var distance_to_player: Vector2 = body.global_position - global_position
 	var knockBack_direction: Vector2 = distance_to_player.normalized()
-	
 	var knockbackStrength: float = 120
-	print('Was hit: ', body)
-	body.velocity += knockBack_direction * knockbackStrength
 	
-	body.HP -= 1
-	if body.HP <= 0:
-		body.queue_free()
+	body.velocity += knockBack_direction * knockbackStrength
+	body.take_damag()
 
 func _on_attack_duration_timer_timeout() -> void:
 	$Sword.visible = false
@@ -145,3 +152,12 @@ func _on_attack_duration_timer_timeout() -> void:
 		$AnimatedSprite2D.play("walk_down")
 	elif current_animation == "attack_up":
 		$AnimatedSprite2D.play("walk_up")
+
+func die():
+	if SceneManager.player_hp <= 0 && $DeathTimer.is_stopped():
+		$AnimatedSprite2D.play("death")
+		$DeathTimer.start()
+
+func _on_death_timer_timeout() -> void:
+	get_tree().call_deferred("reload_current_scene")
+	SceneManager.player_hp = 3

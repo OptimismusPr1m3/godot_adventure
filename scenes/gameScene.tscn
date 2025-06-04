@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://cvfvyb1hblmml"]
+[gd_scene load_steps=23 format=4 uid="uid://cvfvyb1hblmml"]
 
 [ext_resource type="Texture2D" uid="uid://c237rdhibvvk0" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_dogwq"]
 [ext_resource type="Texture2D" uid="uid://drf45jtvxjy1e" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetNature.png" id="2_ijoxr"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c2g4bphn18xa7" path="res://scenes/switch.tscn" id="11_jexop"]
 [ext_resource type="AudioStream" uid="uid://c188vn5x7qok1" path="res://assets/Ninja Adventure - Asset Pack/Musics/1 - Adventure Begin.ogg" id="12_mp0ry"]
 [ext_resource type="PackedScene" uid="uid://d05kpkc67n2xk" path="res://scenes/enemies/slime_enemy.tscn" id="13_4cghv"]
+[ext_resource type="PackedScene" uid="uid://ys7txemnkovj" path="res://scenes/treasure_chest.tscn" id="14_1yuwb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qdqca"]
 texture = ExtResource("1_dogwq")
@@ -889,12 +890,37 @@ position = Vector2(15, 93)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("12_mp0ry")
-volume_db = -10.0
+volume_db = -16.63
+autoplay = true
 parameters/looping = true
 
 [node name="SlimeEnemy" parent="." instance=ExtResource("13_4cghv")]
 position = Vector2(3, 165)
 speed = 30.0
+
+[node name="SlimeEnemy2" parent="." instance=ExtResource("13_4cghv")]
+position = Vector2(-118, -55)
+
+[node name="SlimeEnemy3" parent="." instance=ExtResource("13_4cghv")]
+position = Vector2(166, -78)
+
+[node name="TreasureChest" parent="." instance=ExtResource("14_1yuwb")]
+position = Vector2(-271, 150)
+
+[node name="SlimeEnemy4" parent="." instance=ExtResource("13_4cghv")]
+position = Vector2(-306, 169)
+
+[node name="SlimeEnemy5" parent="." instance=ExtResource("13_4cghv")]
+position = Vector2(-260, 176)
+
+[node name="SlimeEnemy6" parent="." instance=ExtResource("13_4cghv")]
+position = Vector2(-305, 134)
+
+[node name="SlimeEnemy7" parent="." instance=ExtResource("13_4cghv")]
+position = Vector2(-226, 155)
+
+[node name="SlimeEnemy8" parent="." instance=ExtResource("13_4cghv")]
+position = Vector2(-257, 120)
 
 [connection signal="pressed" from="PuzzleButton" to="ObstacleLayer/LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButton" to="ObstacleLayer/LockedDoor" method="_on_puzzle_button_unpressed"]
