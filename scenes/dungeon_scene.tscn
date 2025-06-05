@@ -4,16 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://c237rdhibvvk0" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_o5nfj"]
 [ext_resource type="Texture2D" uid="uid://c611ij7r4apof" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetHole.png" id="1_wruuy"]
 [ext_resource type="Texture2D" uid="uid://ctwja6eq1n102" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetWallSimple.png" id="2_o5nfj"]
-[ext_resource type="PackedScene" uid="uid://bkoy68kv3sg2u" path="res://scenes/locked_door.tscn" id="2_rp2xi"]
+[ext_resource type="PackedScene" uid="uid://bkoy68kv3sg2u" path="res://scenes/objects/locked_door.tscn" id="2_rp2xi"]
 [ext_resource type="PackedScene" uid="uid://bfq7ty8ld7qct" path="res://scenes/entrance.tscn" id="2_wruuy"]
 [ext_resource type="Script" uid="uid://diws3ay6ur2q7" path="res://scripts/secret_walls_layer.gd" id="7_3c2lr"]
-[ext_resource type="PackedScene" uid="uid://rkrhh1nm1t62" path="res://scenes/puzzle_button.tscn" id="8_3visr"]
-[ext_resource type="PackedScene" uid="uid://b7lyb3y44uhs1" path="res://scenes/block.tscn" id="9_3visr"]
-[ext_resource type="PackedScene" uid="uid://bruj3h106uie3" path="res://scenes/ice_block.tscn" id="10_4yhqs"]
+[ext_resource type="PackedScene" uid="uid://rkrhh1nm1t62" path="res://scenes/objects/puzzle_button.tscn" id="8_3visr"]
+[ext_resource type="PackedScene" uid="uid://b7lyb3y44uhs1" path="res://scenes/objects/block.tscn" id="9_3visr"]
+[ext_resource type="PackedScene" uid="uid://bruj3h106uie3" path="res://scenes/objects/ice_block.tscn" id="10_4yhqs"]
 [ext_resource type="PackedScene" uid="uid://c762agrxi0lie" path="res://scenes/single_puzzle_button.tscn" id="11_3c2lr"]
-[ext_resource type="PackedScene" uid="uid://c2g4bphn18xa7" path="res://scenes/switch.tscn" id="12_75rol"]
+[ext_resource type="PackedScene" uid="uid://c2g4bphn18xa7" path="res://scenes/objects/switch.tscn" id="12_75rol"]
 [ext_resource type="PackedScene" uid="uid://kewcmyu6ord1" path="res://scenes/switch_puzzle_manager.tscn" id="12_iopyr"]
-[ext_resource type="PackedScene" uid="uid://ys7txemnkovj" path="res://scenes/treasure_chest.tscn" id="14_ldrf5"]
+[ext_resource type="PackedScene" uid="uid://ys7txemnkovj" path="res://scenes/objects/treasure_chest.tscn" id="14_ldrf5"]
 [ext_resource type="AudioStream" uid="uid://k5pjawy0wk21" path="res://assets/Ninja Adventure - Asset Pack/Musics/2 - The Cave.ogg" id="15_ryete"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_87y1w"]
@@ -1079,7 +1079,7 @@ collision_layer = 1
 collision_mask = 1
 
 [node name="CharacterBody2D" parent="Floor" instance=ExtResource("1_lt5d0")]
-position = Vector2(520, 269)
+position = Vector2(520, 263)
 motion_mode = 1
 acceleration = 10.0
 push_strength = 260.0
@@ -1104,7 +1104,7 @@ script = ExtResource("7_3c2lr")
 position = Vector2(520, 295)
 scale = Vector2(0.735591, 0.98329)
 new_scene = "res://scenes/gameScene.tscn"
-player_spawn_position = Vector2(232, 37)
+player_other_scene_spawn = Vector2(233, 45)
 
 [node name="LockedDoor" parent="." instance=ExtResource("2_rp2xi")]
 position = Vector2(184, 13)

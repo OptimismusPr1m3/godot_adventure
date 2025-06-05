@@ -12,5 +12,3 @@ new_scene = "res://scenes/dungeon_scene.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_4doxw")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

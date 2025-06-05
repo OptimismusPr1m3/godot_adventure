@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://c68iyflaxxdyd"]
 
-[ext_resource type="PackedScene" uid="uid://co8yll8njtq1a" path="res://scenes/npc.tscn" id="1_gjds3"]
+[ext_resource type="PackedScene" uid="uid://co8yll8njtq1a" path="res://scenes/npc/npc.tscn" id="1_gjds3"]
 [ext_resource type="Texture2D" uid="uid://b84hntgi08b1g" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/LionOrange/SpriteSheet.png" id="2_ba8as"]
 [ext_resource type="Texture2D" uid="uid://g4el7f005fkm" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/LionOrange/Faceset.png" id="3_hcvg7"]
 [ext_resource type="FontFile" uid="uid://y3cl7phhtqq2" path="res://assets/Ninja Adventure - Asset Pack/Ui/Font/NormalFont.ttf" id="4_c87v2"]

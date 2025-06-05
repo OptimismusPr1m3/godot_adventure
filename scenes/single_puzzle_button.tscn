@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c762agrxi0lie"]
 
-[ext_resource type="PackedScene" uid="uid://rkrhh1nm1t62" path="res://scenes/puzzle_button.tscn" id="1_umf66"]
+[ext_resource type="PackedScene" uid="uid://rkrhh1nm1t62" path="res://scenes/objects/puzzle_button.tscn" id="1_umf66"]
 [ext_resource type="Texture2D" uid="uid://dx1odwj14f216" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetDungeon.png" id="2_ne7ai"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l06ei"]
