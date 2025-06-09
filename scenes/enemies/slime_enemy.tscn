@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://b1ouxeq152wpc" path="res://assets/Ninja Adventure - Asset Pack/Sounds/Game/Hit3.wav" id="3_syyus"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_syyus"]
-radius = 60.35
+radius = 61.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eto1c"]
 radius = 6.9

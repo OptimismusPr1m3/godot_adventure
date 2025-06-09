@@ -138,6 +138,8 @@ func _on_sword_area_2d_body_entered(body: Node2D) -> void:
 	body.velocity += knockBack_direction * knockbackStrength
 	body.take_damag()
 
+
+
 func _on_attack_duration_timer_timeout() -> void:
 	$Sword.visible = false
 	%SwordArea2D.monitoring = false
