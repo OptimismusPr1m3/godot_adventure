@@ -940,7 +940,7 @@ position = Vector2(-257, 120)
 [node name="CitiyEntrance" parent="." instance=ExtResource("10_52cub")]
 position = Vector2(440, 33)
 scale = Vector2(0.892654, 2.78439)
-new_scene = "res://scenes/area_2.tscn"
+new_scene = "res://scenes/areas/area_2.tscn"
 player_other_scene_spawn = Vector2(-810, 45)
 
 [connection signal="pressed" from="PuzzleButton" to="ObstacleLayer/LockedDoor" method="_on_puzzle_button_pressed"]

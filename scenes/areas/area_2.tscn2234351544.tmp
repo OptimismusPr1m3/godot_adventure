@@ -1545,6 +1545,3 @@ limit_smoothed = true
 
 [node name="Flame" parent="." instance=ExtResource("9_x2t06")]
 position = Vector2(-698, 56)
-
-[node name="Flame2" parent="." instance=ExtResource("9_x2t06")]
-position = Vector2(-696, 103)

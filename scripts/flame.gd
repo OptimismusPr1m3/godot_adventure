@@ -3,8 +3,13 @@ extends CharacterBody2D
 var target: Node2D
 var HP: int = 2
 var hasFirstHit: bool = false
+var rangedSpeed: float = 5
+var hasShot: bool = false
+
 @export var speed: float = 40
 @export var acceleration: float = 2
+
+@onready var throwableFlame = preload("res://scenes/enemies/flame_throwable.tscn")
 
 func _physics_process(delta: float) -> void:
 	if HP <= 0:
@@ -19,8 +24,17 @@ func chasePlayer():
 		var distance_to_player: Vector2 = (target.global_position - global_position).normalized()
 		
 		velocity = velocity.move_toward(distance_to_player * speed, acceleration)
-		print('Chasing Player')
+		#print('Chasing Player', velocity)
+		if !hasShot:
+			throwFlame(velocity)
 		animate_enemy()
+
+func throwFlame(direction: Vector2):
+	var flame = throwableFlame.instantiate()
+	flame.position = global_position
+	flame.direction = (target.global_position - global_position).normalized()
+	get_tree().current_scene.add_child(flame)
+	hasShot = true
 
 func animate_enemy():
 	var normal_velocity: Vector2 = velocity.normalized()
@@ -64,3 +78,4 @@ func die():
 func _on_target_area_body_entered(body: Node2D) -> void:
 	if body is Player:
 		target = body
+		hasShot = false

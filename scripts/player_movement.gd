@@ -16,6 +16,8 @@ func _ready() -> void:
 	if SceneManager.player_spawn:
 		position = SceneManager.player_spawn
 
+func _process(delta: float) -> void:
+	updateHpBar()
 
 func _physics_process(delta: float) -> void:
 	if SceneManager.player_hp <= 0:
@@ -92,8 +94,11 @@ func updateHpBar():
 func _on_hit_box_area_2d_body_entered(body: Node2D) -> void:
 	SceneManager.player_hp -= 1
 	print(SceneManager.player_hp)
-	updateHpBar()
 	
+	onHit(body)
+	
+
+func onHit(body: Node2D):
 	var distance_to_player: Vector2 = global_position - body.global_position
 	var knockback_direction: Vector2 = distance_to_player.normalized()
 	
