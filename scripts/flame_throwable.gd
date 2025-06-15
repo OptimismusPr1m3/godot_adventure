@@ -6,6 +6,7 @@ var direction: Vector2
 var lifeTime: int = 2
 
 func _ready() -> void:
+	$SpawnSound.play()
 	await get_tree().create_timer(lifeTime).timeout
 	queue_free()
 

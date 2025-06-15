@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://nxl2fdtwivxq"]
+[gd_scene load_steps=6 format=3 uid="uid://nxl2fdtwivxq"]
 
 [ext_resource type="Script" uid="uid://gwf85mtpcsg5" path="res://scripts/flame_throwable.gd" id="1_bqk3g"]
 [ext_resource type="Texture2D" uid="uid://dcqtuhcvpe6e5" path="res://assets/Ninja Adventure - Asset Pack/Actor/Monsters/Flam/SpriteSheet.png" id="1_wx846"]
+[ext_resource type="AudioStream" uid="uid://c5bn0ph2dpjoy" path="res://assets/Ninja Adventure - Asset Pack/Sounds/Game/Magic1.wav" id="3_p0oge"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bqk3g"]
 
@@ -19,5 +20,9 @@ shape = SubResource("CircleShape2D_bqk3g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_p0oge")
+
+[node name="SpawnSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_p0oge")
+pitch_scale = 0.6
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
